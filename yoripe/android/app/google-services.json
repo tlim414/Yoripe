@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1016775501340",
+    "project_id": "yoripe-9975d",
+    "storage_bucket": "yoripe-9975d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016775501340:android:17f8bcb819c123eaf5e1d9",
+        "android_client_info": {
+          "package_name": "com.tedlim.yoripe"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB57bLD9sA6aV3JrbS9p-AtJJmPTPb78ZM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
