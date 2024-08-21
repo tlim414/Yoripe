@@ -39,6 +39,7 @@ dependencies:
   flutter_signin_button: ^2.0.0
   firebase_auth: ^5.1.4
   google_sign_in: ^6.2.1
+  cloud_firestore: ^5.2.1
 
 
 dev_dependencies:
