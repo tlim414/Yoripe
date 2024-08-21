@@ -1,5 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:yoripe/pages/add_page.dart';
+import 'package:yoripe/pages/home_page.dart';
+import 'package:yoripe/pages/saved_page.dart';
+import 'package:yoripe/pages/search_page.dart';
+import 'package:yoripe/pages/settings_page.dart';
 
 class MainPage extends StatelessWidget {
   final String appName = "Yoripe";
@@ -52,11 +57,13 @@ class MyMainPageState extends State<MyMainPage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: Center(
-        child: Text(
-          'User: ${user!.email}',
-        ),
-      ),
+      body: [
+        HomePage(),
+        SearchPage(),
+        AddPage(),
+        SavedPage(),
+        SettingsPage(),
+      ][currentPageIndex],
       bottomNavigationBar: NavigationBar(
         labelBehavior: NavigationDestinationLabelBehavior.alwaysHide,
         onDestinationSelected: (int index) {
@@ -73,14 +80,14 @@ class MyMainPageState extends State<MyMainPage> {
             label: 'Home',
           ),
           NavigationDestination(
-            selectedIcon: Icon(Icons.near_me),
-            icon: Icon(Icons.near_me_outlined),
-            label: 'Near Me',
+            selectedIcon: Icon(Icons.search),
+            icon: Icon(Icons.search_outlined),
+            label: 'Search',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.add_box),
             icon: Icon(Icons.add_box_outlined),
-            label: 'Add Recipe',
+            label: 'Add',
           ),
           NavigationDestination(
             selectedIcon: Icon(Icons.bookmark),
@@ -90,7 +97,7 @@ class MyMainPageState extends State<MyMainPage> {
           NavigationDestination(
             selectedIcon: Icon(Icons.menu_rounded),
             icon: Icon(Icons.menu_rounded),
-            label: 'Menu',
+            label: 'Settings',
           ),
         ],
       ),
