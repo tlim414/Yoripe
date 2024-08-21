@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:yoripe/components/my_text_button.dart';
@@ -47,13 +48,12 @@ class _RegisterPageState extends State<RegisterPage> {
             );
           },
         );
-
         await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text,
           password: passwordController.text,
         );
 
-        // TODO: Store name associated with email
+        _add_user_to_users_db();
 
         await FirebaseAuth.instance.signInWithEmailAndPassword(
           email: emailController.text,
@@ -71,11 +71,22 @@ class _RegisterPageState extends State<RegisterPage> {
       Navigator.pop(context);
       if (e.code == 'email-already-in-use') {
         _showErrorMsg(msg: 'User already exists');
-      }
-      else {
+      } else {
         _showErrorMsg();
       }
     }
+  }
+
+  void _add_user_to_users_db() {
+    final new_user = <String, dynamic>{
+      'email': emailController.text,
+      'first_name': firstNameController.text,
+      'last_name': lastNameController.text,
+    };
+
+    FirebaseFirestore db = FirebaseFirestore.instance;
+    db.collection('users').add(new_user).then((DocumentReference doc) =>
+        print('Added new user with reference: ${doc.id}'));
   }
 
   @override
