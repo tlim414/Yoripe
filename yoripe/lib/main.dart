@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:yoripe/pages/auth_page.dart';
 import 'package:yoripe/pages/register_page.dart';
-import 'package:yoripe/pages/reset_passowrd_page.dart';
+import 'package:yoripe/pages/reset_password_page.dart';
 import 'firebase_options.dart';
 
 void main() async {
